@@ -12,7 +12,7 @@
 import MySQLdb
 import json
 def jobs_class(jid):
-    db = MySQLdb.connect("192.168.115.205", "voilet", "wanghui", "fun_cmdb")
+    db = MySQLdb.connect("127.0.0.1", "root", "a0cc454b75d64a0892403f04b56e14c4", "fun_cmdb")
     cursor = db.cursor()
     test = "select id,success from salt_returns where jid=%s" % (jid)
     cursor.execute(test)
