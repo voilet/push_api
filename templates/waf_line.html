@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>ECharts</title>
+    <!--Step:1 引入一个模块加载器，如esl.js或者require.js-->
+    <script src="/static/js/echarts/js/esl.js"></script>
+
+</head>
+
+<body>
+    <div>
+        <div id="main" style="float:left;height:300px;width:1000px;padding:0px;"></div>
+        <div style="float:left;height:300px;width:1000px;padding:0px;">
+
+
+        </div>
+
+    </div>
+
+        <script type="text/javascript">
+        var fileLocation = '/static/js/echarts/js/echarts-map';
+
+        require.config({
+            paths:{
+                'echarts': fileLocation,
+                'echarts/chart/line': fileLocation,
+                'echarts/chart/bar': fileLocation,
+                'echarts/chart/scatter': fileLocation,
+                'echarts/chart/k': fileLocation,
+                'echarts/chart/pie': fileLocation,
+                'echarts/chart/radar': fileLocation,
+                'echarts/chart/map': fileLocation,
+                'echarts/chart/chord': fileLocation,
+                'echarts/chart/force': fileLocation
+            }
+        });
+        var myChart;
+        require(
+            [
+                'echarts',
+                'echarts/chart/bar',
+                'echarts/chart/line',
+                'echarts/chart/bar',
+                'echarts/chart/scatter',
+                'echarts/chart/k',
+                'echarts/chart/pie',
+                'echarts/chart/radar',
+                'echarts/chart/force',
+                'echarts/chart/chord',
+            ],
+            function(ec) {
+                var myChart = ec.init(document.getElementById('main'));
+                var option = {
+                        title : {
+                        text: '攻击类型比例',
+                        subtext: '纯属虚构',
+                        x:'center'
+                    },
+                    tooltip : {
+                        trigger: 'axis'
+                    },
+                    toolbox: {
+                        show : true,
+                        feature : {
+                            mark : {show: true},
+                            dataView : {show: true, readOnly: false},
+                            magicType : {show: true, type: ['line', 'bar', 'stack', 'tiled']},
+                            restore : {show: true},
+                            saveAsImage : {show: true}
+                        }
+                    },
+                    calculable : true,
+                    xAxis : [
+                        {
+                            type : 'category',
+                            boundaryGap : false,
+                            axisLabel : {
+                                show : true,
+                                interval : 3
+                            },
+                            //data : ['1','2','3','4','5','6','7']
+                            data : [
+                                    {% for i in line_start_list %}
+                                        '{{start_time}}:{% if int(i) > 10 %}0{{ i }}{% else %}{{ i }}{% end %}',
+                                    {% end %}
+                                    {% for i in line_stop_list %}
+                                        '{{stop_time}}:{{ i }}',
+                                    {% end %}
+                                    ]
+                        }
+                    ],
+                    yAxis : [
+                        {
+                            type : 'value'
+                        }
+                    ],
+                    series : [
+                        {
+                            name:'攻击次数',
+                            type:'line',
+                            smooth:true,
+                            itemStyle: {normal: {areaStyle: {type: 'default'}}},
+                            data:[200, 110, 300, 54, 260, 0, 710,200, 110, 300, 54, 260, 0, 710]
+                        }
+                    ]
+                };
+
+
+                myChart.setOption(option);
+            }
+        );
+        </script>
+
+</body>
+</html>

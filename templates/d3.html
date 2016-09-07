@@ -1,0 +1,187 @@
+<!DOCTYPE html5>
+<html5>
+  <head>
+    <meta charset="utf-8">
+    <title>Norse - IPViking Live</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/ipviking.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/flags.css">
+  </head>
+
+  <body class="f16">
+    <div id="loading">
+      <h1>Loading...</h1>
+    </div>
+
+    <div id="display-label-container">
+      <h1 id="display-label"></h1>
+    </div>
+    <div id="top-line"></div>
+    <div id="content">
+      <div id="info"></div>
+
+      <div class="data top box left">
+	<a href="#" class="toggle" data-target="#left-table-container">
+	  <div class="table-header blue-grad">
+	    <h3>
+	      Attack Origins
+	      <img class="icon" src="/static/images/down.svg">
+	    </h3>
+	  </div>
+	</a>
+	<div id="left-table-container" class="black-solid table-container">
+	  <table id="left-data">
+	    <colgroup>
+	      <col class="bar-col" span="1">
+	      <col class="total-count" span="1">
+	      <col class="data-label-small" span="1">
+	      <col class="data-label" span="1">
+	    </colgroup>
+	    <tr>
+	      <th></th>
+	      <th>#</th>
+	      <th>⚑</th>
+	      <th>Country</th>
+	    </tr>
+	  </table>
+	</div>
+      </div>
+
+      <div class="data top box right">
+	<a href="#" class="toggle" data-target="#right-table-container">
+	  <div class="table-header blue-grad">
+	    <h3>
+	      Attack Targets
+	      <img class="icon" src="/static/images/down.svg">
+	    </h3>
+	  </div>
+	</a>
+	<div id="right-table-container" class="black-solid table-container">
+	  <table id="right-data">
+	    <colgroup>
+	      <col class="bar-col" span="1">
+	      <col class="total-count" span="1">
+	      <col class="data-label-small" span="1">
+	      <col class="data-label" span="1">
+	    </colgroup>
+	    <tr>
+	      <th></th>
+	      <th>#</th>
+	      <th>⚑</th>
+	      <th>Country</th>
+	    </tr>
+	  </table>
+	</div>
+      </div>
+
+      <div class="data bottom right box">
+	<a href="#" class="toggle" data-target="#bottom-right-table-container">
+	  <div class="table-header blue-grad">
+	    <h3 class="table-header">
+	      Attack Types
+	      <img class="icon" src="/static/images/down.svg">
+	    </h3>
+	  </div>
+	</a>
+
+	<div id="bottom-right-table-container" class="black-solid">
+	  <table id="bottom-right-data">
+	    <colgroup>
+	      <col class="bar-col" span="1">
+	      <col class="total-count" span="1">
+	      <col class="data-label-small" span="1">
+	      <col class="data-label" span="1">
+	      <col class="port-label" span="1">
+	    </colgroup>
+	    <tr>
+	      <th></th>
+	      <th>#</th>
+	      <th><span class="port-circle">●</span></th>
+	      <th>Service</th>
+	      <th>Port</th>
+	    </tr>
+	  </table>
+	</div>
+      </div>
+
+<!--       <div id="social-icons" class="blue-grad right box"> -->
+<!--         <a href="http://www.linkedin.com/company/norse-corporation" target="_blank"><img src="images/linkedin.png" alt="LinkedIn"></a> -->
+<!--         <a href="http://twitter.com/NorseCorp" target="_blank"><img src="images/twitter.png" alt="Twitter"></a> -->
+<!--         <a href="https://www.facebook.com/NorseCorporation" target="_blank"><img src="images/facebook.png" alt="Facebook"></a> -->
+<!--         <a href="http://www.youtube.com/user/norsecorporation" target="_blank"><img src="images/youtube.png" alt="Youtube"></a> -->
+<!--         <a href="https://plus.google.com/114618904682323659936" target="_blank"><img src="images/google+.png" alt="Google+"></a> -->
+<!--       </div> -->
+
+      <div id="console" class="box">
+	<a href="#" class="toggle" data-target="#console-table-container">
+	  <div class="table-header blue-grad">
+	    <h3 class="table-header">
+	      Attacks
+	      <img class="icon" src="/static/images/down.svg">
+	    </h3>
+	  </div>
+	</a>
+	<div id="console-table-container" class="black-solid">
+	  <table id="events-data">
+	    <colgroup class="second-level">
+	      <col class="timestamp-col" span="1">
+	      <col class="attacker-org-col left-border" span="1">
+	      <col class="location-col" span="1">
+	      <col class="attacker-ip-col" span="1">
+	      <col class="location-col left-border" span="1">
+	      <col class="service-col left-border" span="1">
+	      <col class="port-col" span="1">
+	    </colgroup>
+
+	    <tr class="first-level">
+	      <th>Timestamp</th>
+	      <th colspan="3" class="attacker">Attacker</th>
+	      <th class="target">Target</th>
+	      <th colspan="2">Type</th>
+	    </tr>
+
+	    <tr class="second-level">
+	      <th></th>
+	      <th>Organization</th>
+	      <th>Location</th>
+	      <th>IP</th>
+	      <th>Location</th>
+	      <th>Service</th>
+	      <th>Port</th>
+	    </tr>
+	  </table>
+	</div>
+      </div>
+    </div>
+
+      <div id="drawer">
+	<nav>
+	  <ul>
+	    <li><a class="play-pause-btn" data-paused="false" data-next="▶" href="#">❙❙</a></li>
+	  </ul>
+	</nav>
+	<!-- <div id="nav-bottom-corner"></div> -->
+	<div id="drawer-content">
+	  <a class="info-btn" href="#">X</a>
+	  <div id="drawer-inner">
+	    <div id="legend-container"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="message-panel" class="data box">
+        <div class="table-header blue-grad">
+          <h3>Message Dialog</h3>
+        </div>
+        <div id="message-container" class="black-solid table-container">
+          <span id="message-text"></span>
+          <button id="close-button" class="blue-grad" onclick="hideMessage();">Close</button>
+        </div>
+      </div>
+
+
+      <script type="text/javascript" src="/static/js/d3.v3.min.js"></script>
+      <script type="text/javascript" src="/static/js/queue.v1.min.js"></script>
+      <script type="text/javascript" src="/static/js/topojson.v1.min.js"></script>
+      <script type="text/javascript" src="/static/js/ipviking.js"></script>
+      <script type="text/javascript" src="/static/js/presentations.js"></script>
+  </body>
+</html5>

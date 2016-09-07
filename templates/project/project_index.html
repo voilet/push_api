@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+<!--{{ project_data }}-->
+{% for i in project_data["test"] %}
+   <li>{{ i["node"]["node"] }}</li>
+   <li>{{ i["node"]["config"] }}</li>
+   <li>{{ i["node"]["project_name"] }}</li>
+{% end %}
+</body>
+</html>
